@@ -1,0 +1,13 @@
+{
+  "tenant_id": "your_tenant_id_here",
+  "app_id": "your_app_id_here",
+  "api_urls": {
+    "base_url": "https://your-api-base-url",
+    "openai_api_base": "https://your-openai-api-base-url"
+  },
+  "timeout": 120,
+  "is_configured": false,
+  "mcpServers": {
+
+  }
+}

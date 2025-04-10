@@ -1,0 +1,530 @@
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-header {
+  background-color: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 0 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 64px;
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+}
+
+.header-right {
+  display: flex;
+  gap: 8px;
+}
+
+.app-title {
+  margin: 0;
+  margin-left: 12px;
+  font-size: 20px;
+  color: #1890ff;
+}
+
+.app-content {
+  padding: 84px 24px 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  max-width: 1000px;
+  margin: 0 auto;
+  width: 100%;
+  background-color: #f5f5f5;
+}
+
+.messages-container {
+  flex: 1;
+  overflow-y: auto;
+  padding: 12px 0;
+  margin-bottom: 0;
+  padding-bottom: 16px;
+}
+
+/* 微信风格聊天界面 */
+.message-row {
+  display: flex;
+  margin-bottom: 16px;
+  align-items: flex-start;
+}
+
+.user-message-row {
+  flex-direction: row; /* 改为从左到右 */
+  justify-content: flex-end; /* 靠右对齐 */
+}
+
+.ai-message-row {
+  flex-direction: row;
+}
+
+.message-avatar {
+  flex-shrink: 0;
+  margin: 0 12px;
+}
+
+.message-bubble {
+  padding: 10px 14px;
+  border-radius: 10px;
+  max-width: 70%;
+  word-wrap: break-word;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.user-message-bubble {
+  background-color: #9eea6a;
+  margin-right: 8px;
+  border-top-right-radius: 3px;
+}
+
+.ai-message-bubble {
+  background-color: #ffffff;
+  margin-left: 8px;
+  border-top-left-radius: 3px;
+}
+
+.message-bubble p {
+  margin: 0;
+}
+
+.message-bubble pre {
+  background-color: rgba(0, 0, 0, 0.05);
+  padding: 10px;
+  border-radius: 5px;
+  overflow-x: auto;
+  margin: 10px 0;
+}
+
+.message-bubble code {
+  background-color: rgba(0, 0, 0, 0.05);
+  padding: 2px 4px;
+  border-radius: 3px;
+  font-family: monospace;
+}
+
+/* 聊天头部信息 */
+.chat-header {
+  display: flex;
+  align-items: center;
+  padding: 8px 16px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.chat-header span {
+  margin-right: 16px;
+  color: #666;
+}
+
+.current-role-name, .current-model-name {
+  font-weight: bold;
+  color: #1890ff;
+  margin: 0 4px;
+}
+
+.change-role-button {
+  margin-left: auto;
+}
+
+.input-container {
+  display: flex;
+  gap: 12px;
+  background-color: #fff;
+  padding: 16px;
+  border-radius: 8px 8px 0 0;
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  bottom: 0;
+  z-index: 10;
+  margin-top: 20px;
+}
+
+.input-container .ant-input {
+  border-radius: 8px;
+  min-height: 60px; /* 增加输入框高度 */
+  padding: 12px;
+}
+
+.send-button {
+  height: auto;
+}
+
+.app-footer {
+  text-align: center;
+  background-color: #f0f2f5;
+  padding: 12px;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 48px 0;
+  color: #999;
+}
+
+.empty-state h2 {
+  color: #1890ff;
+  margin-bottom: 16px;
+}
+
+.api-info {
+  font-size: 12px;
+  color: #999;
+  margin-top: 16px;
+  padding: 4px 8px;
+  background-color: #f5f5f5;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+.conversation-item {
+  cursor: pointer;
+  padding: 12px;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.conversation-item:hover {
+  background-color: #f0f0f0;
+}
+
+.conversation-title {
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.conversation-date {
+  font-size: 12px;
+  color: #999;
+}
+
+.empty-conversations {
+  text-align: center;
+  padding: 24px 0;
+  color: #999;
+}
+
+/* 图像生成相关样式 */
+.generated-image {
+  margin-top: 16px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.generated-image img {
+  max-width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 16px;
+}
+
+.revised-prompt {
+  margin-top: 12px;
+  padding: 12px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  border-left: 4px solid #1890ff;
+  width: 100%;
+  text-align: left;
+}
+
+.revised-prompt-title {
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #1890ff;
+}
+
+.revised-prompt-content {
+  color: #333;
+  line-height: 1.5;
+  font-style: italic;
+}
+
+/* 角色选择器样式 */
+.role-selector-card {
+  margin-bottom: 20px;
+  max-width: 600px;
+  margin: 20px auto;
+}
+
+.role-radio-group {
+  width: 100%;
+}
+
+.role-option {
+  display: flex;
+  flex-direction: column;
+}
+
+.role-name {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.role-description {
+  color: #666;
+  font-size: 14px;
+}
+
+.custom-role-input {
+  margin-top: 16px;
+}
+
+.confirm-role-button {
+  margin-top: 16px;
+  width: 100%;
+}
+
+.loading-roles {
+  text-align: center;
+  padding: 20px;
+  color: #999;
+}
+
+.role-selector-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+}
+
+/* 适配移动设备 */
+@media (max-width: 768px) {
+  .app-header {
+    padding: 0 12px;
+  }
+
+  .app-content {
+    padding: 74px 12px 12px;
+  }
+
+  .message-bubble {
+    max-width: 80%;
+  }
+
+  .header-right {
+    gap: 4px;
+  }
+}
+
+/* 模型选择器样式 */
+.model-option {
+  display: flex;
+  flex-direction: column;
+  padding: 8px 0;
+}
+
+.model-name {
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.model-description {
+  color: #666;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 4px;
+}
+
+.model-internet-badge {
+  background-color: #1890ff;
+  color: white;
+  font-size: 10px;
+  padding: 1px 5px;
+  border-radius: 10px;
+  margin-left: 6px;
+}
+
+/* 增强下拉框样式 */
+.ant-select-dropdown {
+  max-height: 400px;
+}
+
+.ant-select-item-option-content {
+  white-space: normal !important;
+}
+
+.ant-select-selection-item {
+  font-weight: bold;
+}
+
+/* 联网开关按钮样式 */
+.web-search-button {
+  margin-right: 8px;
+  display: flex;
+  align-items: center;
+}
+
+.web-search-button.ant-btn-primary {
+  background-color: #1890ff;
+}
+
+/* 在聊天界面显示联网状态 */
+.web-search-status {
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  color: #666;
+  margin-left: 16px;
+}
+
+.web-search-status .anticon {
+  margin-right: 4px;
+}
+
+.web-search-status.enabled {
+  color: #1890ff;
+}
+
+/* 在消息气泡中显示联网来源 */
+.search-source {
+  font-size: 12px;
+  color: #999;
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px dashed #eee;
+}
+
+.search-source-title {
+  font-weight: bold;
+  margin-right: 4px;
+}
+
+/* 自定义角色相关样式 */
+.custom-role-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 16px;
+}
+
+.prompt-preview {
+  background-color: #f5f5f5;
+  padding: 12px;
+  border-radius: 4px;
+  border: 1px solid #e8e8e8;
+  max-height: 150px;
+  overflow-y: auto;
+  white-space: pre-wrap;
+  font-size: 14px;
+  color: #333;
+}
+
+/* 角色项样式 */
+.role-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 4px 0;
+}
+
+.delete-role-button {
+  opacity: 0.8;
+  transition: all 0.3s;
+}
+
+.delete-role-button:hover {
+  opacity: 1;
+  background-color: #fff1f0;
+}
+
+.role-item:hover {
+  background-color: #f5f5f5;
+}
+
+/* 角色管理相关样式 */
+.role-management-header {
+  margin-bottom: 10px;
+  text-align: right;
+}
+
+.role-management-header h3 {
+  margin-bottom: 8px;
+  color: #1890ff;
+}
+
+.role-management-tip {
+  font-size: 12px;
+  color: #888;
+  display: inline-flex;
+  align-items: center;
+  background-color: #f9f9f9;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.role-management-tip .built-in-role-tag {
+  background-color: #e6f7ff;
+  color: #1890ff;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-size: 12px;
+  margin-right: 8px;
+}
+
+.built-in-role-tag {
+  background-color: #e6f7ff;
+  color: #1890ff;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-size: 12px;
+  margin-right: 8px;
+}
+
+.delete-role-button {
+  opacity: 0.8;
+  transition: all 0.3s;
+}
+
+.delete-role-button:hover {
+  opacity: 1;
+  background-color: #fff1f0;
+}
+
+.role-item {
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: background-color 0.3s;
+  margin-bottom: 8px;
+}
+
+.role-item:hover {
+  background-color: #f5f5f5;
+}
+
+/* 新建会话按钮样式 */
+.new-chat-button {
+  margin-right: 8px;
+  font-size: 20px;
+  color: #1890ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+}
+
+.new-chat-button:hover {
+  color: #40a9ff;
+  transform: scale(1.1);
+}
+
+.new-chat-button:disabled {
+  color: #d9d9d9;
+}
